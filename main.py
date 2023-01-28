@@ -1,7 +1,12 @@
-<<<<<<< HEAD
-# i idfasfadf sdfasdasfadfasf a ad f
-=======
-import flask
+from flask import Flask, request, jsonify
 
-# dgkjndfgjkndfg
->>>>>>> 1247cf4db22b4b5ed3999918b41b8fc48ad9a75c
+app = Flask(__name__)
+
+from routes.graph import graph_bp
+from routes.index import index_bp
+
+app.register_blueprint(graph_bp)
+app.register_blueprint(index_bp)
+
+if __name__ == '__main__':
+    app.run()
