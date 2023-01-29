@@ -24,7 +24,7 @@ def graph():
     question = request.json['prompt']
     print(question)
     conn = http.client.HTTPSConnection("api.openai.com")
-    payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"List 10 concepts surrounding the subject {question} and include the word(s) {question} in each of the related concepts in the list below:", ' + '  \n "max_tokens": 256,\n  "temperature": 0\n}\n'
+    payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"List at most 10 concepts surrounding the subject {question} and include the word(s) {question} in each of the related concepts in the list below:", ' + '  \n "max_tokens": 256,\n  "temperature": 0\n}\n'
     conn.request("POST", "/v1/completions", payload, headers)
 
     res = conn.getresponse()
