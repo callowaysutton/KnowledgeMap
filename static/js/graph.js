@@ -104,7 +104,7 @@ addOrigin(query);
 var count = 0;
 
 function getLeafNode(subject) {
-    if (count > 10) {
+    if (count > 5) {
         return;
     }
     return fetch('/api/graph',

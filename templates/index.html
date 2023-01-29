@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body>
+<body OnLoad="document.searcharea.search.focus();">
   <div class="box">
     <h1 style="text-align: center; padding-bottom: 0; margin-bottom: 0;">Knowledge</h1>
     <h1 style="text-align: center; line-height: 0; margin-top: 0; padding-top: 0; margin-bottom: 20%;">Map</h1>
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <form method="GET" action="/graph">
+    <form name="searcharea" method="GET" action="/graph">
       <input type="search" placeholder="Search..." name="search" required>
       <i class="fa fa-search"></i>
       <a href="javascript:void(0)" id="clear-btn">Clear</a>

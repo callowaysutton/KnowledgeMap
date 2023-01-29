@@ -25,12 +25,12 @@ body {
 h1 {
     color: whitesmoke;
     font-family: 'Bowlby One', cursive;
-    font-size: 5em;
+    font-size: 7em;
 }
 
 .box {
     position: absolute;
-    top:  25%;
+    top:  35%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
