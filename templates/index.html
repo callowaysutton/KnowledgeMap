@@ -8,23 +8,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-    <Knowledgemap class="teck"></Knowledgemap>
-  </title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  <link rel="preload" href="Hubot-Sans.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
-  <main>
-    <div class="box">
-      <h1>Welcome to Knowledge Map!</h1>
-      <h3>knowledge is for everyone</h3>
-      <input type="text" placeholder="Search to understand..." name="search">
-    </div>
-    <script src="index.js"></script>
+  <div class="box">
+    <h1 style="text-align: center; padding-bottom: 0; margin-bottom: 0;">Knowledge</h1>
+    <h1 style="text-align: center; line-height: 0; margin-top: 0; padding-top: 0; margin-bottom: 20%;">Map</h1>
+    <!-- <h3>knowledge is for everyone</h3> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+    <form method="GET" action="/graph">
+      <input type="search" placeholder="Search..." name="search" required>
+      <i class="fa fa-search"></i>
+      <a href="javascript:void(0)" id="clear-btn">Clear</a>
+    </form>
 </body>
+
+<script>
+  const clearInput = () => {
+    const input = document.getElementsByTagName("input")[0];
+    input.value = "";
+  }
+
+  const clearBtn = document.getElementById("clear-btn");
+  clearBtn.addEventListener("click", clearInput);
+</script>
 
 </html>

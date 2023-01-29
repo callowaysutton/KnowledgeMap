@@ -22,12 +22,14 @@ def graph():
 
     question = request.json['prompt']
     print(question)
-    conn = http.client.HTTPSConnection("api.openai.com")
-    payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"Summarize the concept surrounding the subject {question} and include references to articles, books, documents and websites which can further help explain the concept below:", ' + '  \n "max_tokens": 256,\n  "temperature": 0\n}\n'
-    conn.request("POST", "/v1/completions", payload, headers)
+    conn = http.client.HTTPConnection("127.0.0.1:8787")
+    payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"Summarize the concept surrounding the subject: {question}. Make sure to include any references to articles, books, documents and websites which can further help explain the concept below:", ' + '  \n "max_tokens": 512,\n  "temperature": 0\n}\n'
+    conn.request("POST", "/proxy/completions", payload, headers)
 
     res = conn.getresponse()
     data = res.read()
+
+    print(data)
 
     answer = loads(data.decode("utf-8"))
 

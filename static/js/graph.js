@@ -1,5 +1,13 @@
 const queryString = window.location.search;
 
+function startTimer () {
+    setTimeout(stopTimer,50000);
+}
+
+function stopTimer () {
+    return;
+}
+
 String.prototype.hashCode = function () {
     var hash = 0,
         i, chr;
@@ -66,15 +74,21 @@ var options = {
 network = new vis.Network(container, data, options);
 
 function addNode(source, destination) {
+    startTimer();
     try {
         nodes.add({
             id: destination.hashCode(),
             label: destination,
         });
-    } catch (error) {
+    } catch {
         console.log("Can't add nodes!");
     }
-    edges.add({ from: source.hashCode(), to: destination.hashCode(), title: "Edges work exactly the same." })
+
+    try {
+        edges.add({ from: source.hashCode(), to: destination.hashCode(), title: "Edges work exactly the same." })
+    } catch {
+        console.log("Couldn't add edge!")
+    }
 }
 
 function addOrigin(concept) {
@@ -85,9 +99,12 @@ function addOrigin(concept) {
 }
 
 addOrigin(query);
+var count = 0;
 
-
-async function getLeafNode(subject) {
+function getLeafNode(subject) {
+    if (count > 2) {
+        return;
+    }
     return fetch('/api/graph',
         {
             method: 'POST',
@@ -106,12 +123,12 @@ async function getLeafNode(subject) {
             for (var i = 2; i < str.length; i++) {
                 currentSubject = text.split("\n")[i].split(". ")[1];
                 addNode(subject, currentSubject);
+                getLeafNode(currentSubject);
             }
+            count += 1;
         });
 }
 
-
-var choices;
 function getConcepts() {
     return fetch('/api/graph',
         {
@@ -143,7 +160,7 @@ getConcepts();
 panel = document.getElementsByClassName("js-cd-panel-main")[0];
 skeleton = document.getElementById("skeleton-loading");
 panel.addEventListener('click', function (event) {
-    if (hasClass(event.target, 'js-cd-close') || hasClass(event.target, panelClass)) {
+    if (hasClass(event.target, 'js-cd-close') || hasClass(event.target, "js-cd-panel-main")) {
         event.preventDefault();
         removeClass(panel, 'cd-panel--is-visible');
         removeClass(skeleton, 'invisible');

@@ -8,12 +8,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-    <Knowledgemap class="teck"></Knowledgemap>
-  </title>
+  <title> KnowledgeMap</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/graph.css') }}">
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  <link rel="preload" href="Hubot-Sans.woff2" as="font" type="font/woff2" crossorigin>
   <script src="https://visjs.github.io/vis-network/peer/umd/vis-network.min.js"></script>
   <script src="https://unpkg.com/vis-data@7.1.4/peer/umd/vis-data.min.js"></script>
   <script src="https://visjs.github.io/vis-network/peer/umd/vis-network.min.js"></script>
@@ -35,14 +32,14 @@
 
     <div class="cd-panel cd-panel--from-right js-cd-panel-main">
       <header class="cd-panel__header">
-        <span id="panel-title"><h1>Loading...</h1></span>
+        <h1><span id="panel-title">Loading...</span></h1>
         <a href="#0" class="cd-panel__close js-cd-close">Close</a>
       </header>
   
       <div class="cd-panel__container">
         <div class="cd-panel__content">
           <!-- Panel content -->
-          <span id="panel-content"></span>
+          <p><span id="panel-content" style="white-space: pre-wrap;"></span></p>
 
           <!-- Panel loading -->
           <div class="" id="skeleton-loading">

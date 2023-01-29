@@ -1,3 +1,38 @@
+html, body, div, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, main {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+
 html,
 body,
 #mynetwork {
@@ -33,7 +68,7 @@ body,
 body {
   font-size: 1.6rem;
   font-family: "Droid Sans", sans-serif;
-  color: #dbe2e9;
+  /* color: #dbe2e9; */
   background: #424f5c;
 }
 
@@ -62,7 +97,7 @@ Slide In Panel - by CodyHouse.co
   display: inline-block;
   padding: 1em 2em;
   background-color: #89ba2c;
-  color: #ffffff;
+  /* color: #ffffff; */
   border-radius: 50em;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 5px rgba(0, 0, 0, 0.1);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 5px rgba(0, 0, 0, 0.1);
@@ -138,9 +173,9 @@ Slide In Panel - by CodyHouse.co
           transform: translateY(-50px);
 }
 
-.cd-panel__header h1 {
-  color: #89ba2c;
-  padding-left: 5%;
+.cd-panel__header {
+  color: #222222;
+  padding-left: 2%;
 }
 
 .cd-panel--from-right .cd-panel__header {
@@ -347,7 +382,7 @@ Slide In Panel - by CodyHouse.co
 }
 
 .cd-panel__content p {
-  font-size: 1.4rem;
+  font-size: 2.4rem;
   color: #424f5c;
   line-height: 1.4;
   margin: 2em 0;
@@ -368,7 +403,7 @@ Slide In Panel - by CodyHouse.co
 body {
   font-size: 1.6rem;
   font-family: "Droid Sans", sans-serif;
-  color: #dbe2e9;
+  /* color: #dbe2e9; */
   background: #424f5c;
 }
 
@@ -388,50 +423,6 @@ html {
 
 /* ---------------------------------------------- */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section, main {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 .skeleton {
   animation: skeleton-loading 1s linear infinite alternate;
 }
@@ -447,9 +438,9 @@ table {
 
 .skeleton-text {
   width: 100%;
-  height: 0.7rem;
-  margin-bottom: 0.5rem;
-  border-radius: 0.25rem;
+  height: 2.7rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
 }
 
 .skeleton-text__body {
