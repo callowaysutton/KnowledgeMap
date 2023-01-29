@@ -140,12 +140,14 @@ function getConcepts() {
 getConcepts();
 
 
-var panelClass = 'js-cd-panel-main',
-panel = document.getElementsByClassName(panelClass)[0];
+panel = document.getElementsByClassName("js-cd-panel-main")[0];
+skeleton = document.getElementById("skeleton-loading");
 panel.addEventListener('click', function (event) {
     if (hasClass(event.target, 'js-cd-close') || hasClass(event.target, panelClass)) {
         event.preventDefault();
         removeClass(panel, 'cd-panel--is-visible');
+        removeClass(skeleton, 'invisible');
+        document.getElementById("panel-content").textContent = ""
     }
 });
 
@@ -155,6 +157,20 @@ network.on('click', function (properties) {
     console.log('clicked nodes:', clickedNodes);
     document.getElementById("panel-title").textContent=clickedNodes[0].label;
     addClass(panel, 'cd-panel--is-visible');
+
+    const options = {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: `{"prompt":"${clickedNodes[0].label}"}`
+      };
+      
+      fetch('/api/summary', options)
+        .then(response => response.json())
+        .then(response => {
+            addClass(skeleton, 'invisible');
+            document.getElementById("panel-content").textContent = response.choices.at(0).text
+        })
+        .catch(err => console.error(err));
 });
 
 function hasClass(el, className) {

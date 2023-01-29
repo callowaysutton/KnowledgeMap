@@ -459,3 +459,7 @@ table {
 .skeleton-footer {
   width: 30%;
 }
+
+.invisible {
+  display: none;
+}
