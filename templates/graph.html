@@ -17,19 +17,51 @@
   <script src="https://visjs.github.io/vis-network/peer/umd/vis-network.min.js"></script>
   <script src="https://unpkg.com/vis-data@7.1.4/peer/umd/vis-data.min.js"></script>
   <script src="https://visjs.github.io/vis-network/peer/umd/vis-network.min.js"></script>
-
+  <style>
+    body {
+        background-color: #222222;
+    }
+    #mynetwork {
+        background-color: #222222;
+    }
+  </style>
 </head>
 
 <body>
   <main>
     <div class="box">
-      <h1>Welcome to Knowledge Map!</h1>
-      <h3>knowledge is for everyone</h3>
-      <h3>{{ query }}</h3>
       <div id="mynetwork"></div>
-      <script src="{{ url_for('static', filename='js/graph.js') }}"></script>
     </div>
 
+    <div class="cd-panel cd-panel--from-right js-cd-panel-main">
+      <header class="cd-panel__header">
+        <span id="panel-title"><h1>Loading...</h1></span>
+        <a href="#0" class="cd-panel__close js-cd-close">Close</a>
+      </header>
+  
+      <div class="cd-panel__container">
+        <div class="cd-panel__content">
+          <!-- Panel content -->
+          <span id="panel-content"></span>
+
+          <!-- Panel loading -->
+          <div class="" id="skeleton-loading">
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text skeleton-text__body"></div>
+            <div class="skeleton skeleton-text skeleton-footer"></div>
+          </div>
+
+
+        </div> <!-- cd-panel__content -->
+      </div> <!-- cd-panel__container -->
+    </div> <!-- cd-panel -->
+
 </body>
+<script src="{{ url_for('static', filename='js/graph.js') }}"></script>
 
 </html>

@@ -45,6 +45,8 @@ var data = {
 var options = {
     nodes: {
         shape: "dot",
+        size: 72,
+        font: "18px verdana white",
     },
     edges: {
         smooth: true,
@@ -55,19 +57,23 @@ var options = {
         },
         minVelocity: 1,
         solver: "repulsion",
-    repulsion: {
-      nodeDistance: 900 // Put more distance between the nodes.
-    }
+        repulsion: {
+            nodeDistance: 900 // Put more distance between the nodes.
+        }
     }
 };
 
 network = new vis.Network(container, data, options);
 
 function addNode(source, destination) {
-    nodes.add({
-        id: destination.hashCode(),
-        label: destination,
-    });
+    try {
+        nodes.add({
+            id: destination.hashCode(),
+            label: destination,
+        });
+    } catch (error) {
+        console.log("Can't add nodes!");
+    }
     edges.add({ from: source.hashCode(), to: destination.hashCode(), title: "Edges work exactly the same." })
 }
 
@@ -99,7 +105,7 @@ async function getLeafNode(subject) {
             str = text.split("\n")
             for (var i = 2; i < str.length; i++) {
                 currentSubject = text.split("\n")[i].split(". ")[1];
-                addNode(subject,currentSubject);
+                addNode(subject, currentSubject);
             }
         });
 }
@@ -124,7 +130,7 @@ function getConcepts() {
             str = text.split("\n")
             for (var i = 2; i < str.length; i++) {
                 currentSubject = text.split("\n")[i].split(". ")[1];
-                addNode(query,currentSubject);
+                addNode(query, currentSubject);
                 getLeafNode(currentSubject);
             }
         });
@@ -132,3 +138,37 @@ function getConcepts() {
 
 
 getConcepts();
+
+
+var panelClass = 'js-cd-panel-main',
+panel = document.getElementsByClassName(panelClass)[0];
+panel.addEventListener('click', function (event) {
+    if (hasClass(event.target, 'js-cd-close') || hasClass(event.target, panelClass)) {
+        event.preventDefault();
+        removeClass(panel, 'cd-panel--is-visible');
+    }
+});
+
+network.on('click', function (properties) {
+    var ids = properties.nodes;
+    var clickedNodes = nodes.get(ids);
+    console.log('clicked nodes:', clickedNodes);
+    document.getElementById("panel-title").textContent=clickedNodes[0].label;
+    addClass(panel, 'cd-panel--is-visible');
+});
+
+function hasClass(el, className) {
+    if (el.classList) return el.classList.contains(className);
+    else return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+}
+function addClass(el, className) {
+   if (el.classList) el.classList.add(className);
+   else if (!hasClass(el, className)) el.className += " " + className;
+}
+function removeClass(el, className) {
+    if (el.classList) el.classList.remove(className);
+    else if (hasClass(el, className)) {
+      var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+      el.className=el.className.replace(reg, ' ');
+    }
+}
