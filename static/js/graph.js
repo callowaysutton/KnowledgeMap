@@ -1,7 +1,7 @@
 const queryString = window.location.search;
 
 function startTimer () {
-    setTimeout(stopTimer,500000);
+    setTimeout(stopTimer,5000);
 }
 
 function stopTimer () {
@@ -63,7 +63,7 @@ var options = {
         barnesHut: {
             "centralGravity": 100
         },
-        minVelocity: 1,
+        minVelocity: 10,
         solver: "repulsion",
         repulsion: {
             nodeDistance: 900 // Put more distance between the nodes.
@@ -76,10 +76,12 @@ network = new vis.Network(container, data, options);
 function addNode(source, destination) {
     startTimer();
     try {
+        if (destination) {
         nodes.add({
             id: destination.hashCode(),
             label: destination,
         });
+    }
     } catch {
         console.log("Can't add nodes!");
     }
@@ -214,7 +216,7 @@ network.on( "zoom", function(properties){
             // 1/scale to make text larger as scale is smaller
             // 16 is my default font size
             font: {
-                size: "32",
+                size: 32,
                 color: "white"
                 
             }              
