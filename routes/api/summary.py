@@ -16,7 +16,6 @@ headers = {
 summary_api_bp = Blueprint('summary_api', __name__)
 @summary_api_bp.route('/api/summary', methods=['POST'])
 def graph():
-
     content_type = request.headers.get('Content-Type')
     if (content_type != 'application/json'):
         return 'Content-Type not supported!'

@@ -17,4 +17,4 @@ app.register_blueprint(graph_api_bp)
 app.register_blueprint(summary_api_bp)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5002)
+    app.run(debug=True, port=5001)

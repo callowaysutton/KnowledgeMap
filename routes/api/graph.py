@@ -22,9 +22,11 @@ def graph():
         return 'Content-Type not supported!'
 
     question = request.json['prompt']
-    print(question)
+    if question is None or question == "":
+        return 'Please supply a prompt!'
+    
     conn = http.client.HTTPSConnection("api.openai.com")
-    payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"List at most 10 concepts surrounding the subject {question} and include the word(s) {question} in each of the related concepts in the list below:", ' + '  \n "max_tokens": 256,\n  "temperature": 0\n}\n'
+    payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"List between 2 to 10 concepts surrounding the subject {question} and include the word(s) {question} in each of the related concepts in the list below:", ' + '  \n "max_tokens": 64,\n  "temperature": 0\n}\n'
     conn.request("POST", "/v1/completions", payload, headers)
 
     res = conn.getresponse()
