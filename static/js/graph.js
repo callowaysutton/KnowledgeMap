@@ -1,7 +1,7 @@
 const queryString = window.location.search;
 
 function startTimer () {
-    setTimeout(stopTimer,50000);
+    setTimeout(stopTimer,500000);
 }
 
 function stopTimer () {
@@ -102,7 +102,7 @@ addOrigin(query);
 var count = 0;
 
 function getLeafNode(subject) {
-    if (count > 2) {
+    if (count > 10) {
         return;
     }
     return fetch('/api/graph',
@@ -129,6 +129,8 @@ function getLeafNode(subject) {
         });
 }
 
+
+var choices;
 function getConcepts() {
     return fetch('/api/graph',
         {
@@ -205,3 +207,18 @@ function removeClass(el, className) {
       el.className=el.className.replace(reg, ' ');
     }
 }
+
+network.on( "zoom", function(properties){
+    var options = {
+        nodes: {
+            // 1/scale to make text larger as scale is smaller
+            // 16 is my default font size
+            font: {
+                size: "32",
+                color: "white"
+                
+            }              
+        }
+    };
+    network.setOptions(options);
+});

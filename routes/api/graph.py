@@ -25,12 +25,14 @@ def graph():
     if question is None or question == "":
         return 'Please supply a prompt!'
     
-    conn = http.client.HTTPConnection("127.0.0.1:8787")
-    payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"List between 2 to 10 concepts surrounding the subject {question} and include the word(s) {question} in each of the related concepts in the list below:", ' + '  \n "max_tokens": 64,\n  "temperature": 0\n}\n'
+    conn = http.client.HTTPConnection("0.0.0.0:8787")
+    payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"List up to 10 concepts which build up to the subject {question}. Do not include a concept if you are even a little unsure that it may not relate back to the main subject. Make sure to include {question} in each of the related concepts in the list below:", ' + '  \n "max_tokens": 128,\n  "temperature": 0\n}\n'
     conn.request("POST", "/proxy/completions", payload, headers)
 
     res = conn.getresponse()
     data = res.read()
+
+    print(data)
 
     answer = loads(data.decode("utf-8"))
 
