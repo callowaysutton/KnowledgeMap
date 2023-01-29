@@ -13,8 +13,8 @@ headers = {
     'content-type': "application/json"
     }
 
-graph_api_bp = Blueprint('graph_api', __name__)
-@graph_api_bp.route('/api/graph', methods=['POST'])
+summary_api_bp = Blueprint('summary_api', __name__)
+@summary_api_bp.route('/api/summary', methods=['POST'])
 def graph():
 
     content_type = request.headers.get('Content-Type')
@@ -33,5 +33,3 @@ def graph():
     answer = loads(data.decode("utf-8"))
 
     return answer
-
-    
