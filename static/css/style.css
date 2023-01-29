@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'mona_sansthin';
+    src: url('mona-sans-webfont.woff2') format('woff2'),
+        url('mona-sans-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* @font-face {
+    font-family: 'Hubot Sans';
+    src:
+        url('Hubot-Sans.woff2') format('woff2 supports variations'),
+        url('Hubot-Sans.woff2') format('woff2-variations');
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
+} */
+body {
+
+    background: linear-gradient(to right, #b5179e, #4361ee);
+}
+
+
+
+
+h1 {
+    color: whitesmoke;
+    font-family: 'mona_sansthin';
+
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    min-height: 400px;
+    align-items: center;
+}
+
+#search {}
