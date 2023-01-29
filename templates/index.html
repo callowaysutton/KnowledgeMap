@@ -4,19 +4,21 @@
 <!-- Cool effect https://github.com/EdernClemente/TypeLighterJS-Typewriter -->
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
     <Knowledgemap class="teck"></Knowledgemap>
   </title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="preload" href="Hubot-Sans.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
   <main>
-    <div class = "box">
+    <div class="box">
       <h1>Welcome to Knowledge Map!</h1>
       <h3>knowledge is for everyone</h3>
       <input type="text" placeholder="Search to understand..." name="search">
