@@ -25,7 +25,7 @@ def graph():
     if question is None or question == "":
         return 'Please supply a prompt!'
     
-    conn = http.client.HTTPConnection("0.0.0.0:8787")
+    conn = http.client.HTTPConnection("openai-caching-proxy-worker.calloway.workers.dev")
     payload = ' {\n  "model": "text-davinci-003",\n  "prompt":' + f'"List up to 10 concepts which build up to the subject {question}. Do not include a concept if you are even a little unsure that it may not relate back to the main subject. Make sure to include {question} in each of the related concepts in the list below:", ' + '  \n "max_tokens": 128,\n  "temperature": 0\n}\n'
     conn.request("POST", "/proxy/completions", payload, headers)
 
