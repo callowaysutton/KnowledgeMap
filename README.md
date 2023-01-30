@@ -7,7 +7,7 @@ Play with it at: https://knowledgemap.tech
 We used the Bloom LLM as well as the Davinci text model to analyze prompts and come up with similar/related concepts and then mapped those similar concepts onto a plane with branches going to paths where the next steps are needed. Each node's summary gives a short and sweet description of the skill and then gives some resources like articles, books or websites to learn more about the given prompt and concept.
 
 ## Challenges we ran into
-My teammates were new to web development but we were able to all learn how to efficiently create this project in a tiny amount of time.
+My teammates were new to web development but we were able to all learn how to efficiently create this project in a tiny amount of time. 3 hours to be exact!
 
 ## Accomplishments that we're proud of
 We designed our entire system with no frameworks and code written from scratch and from idea to fruition it only took us around 6-8 hours to develop the entire platform. Of course there are bugs that need to be squashed, but this is a ready to go platform that can easily be expanded on through various means and I think there is a good chance I personally will continue working on this in the future.
